@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrado</title>
+  <style>
+      body{
+      margin: 40;
+      padding: 10;
+      background:whitesmoke;   
+      background-size: cover;
+      background-position: center;
+      font-family: sans-serif;
+      align-content: center;
+      }
+  
+      .form {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 8px;
+      font-family: "Montserrat", sans-serif;
+      }
+
+      .form input {
+      width: 90%;
+      height: 30px;
+      margin: 0.5rem;
+      }
+
+      .form button {
+      padding: 0.5em 1em;
+      border: none;
+      background: rgb(100, 200, 255);
+      cursor: pointer;
+      }
+  
+  </style>
+
+   <script>
+     function confir(){
+       var a = document.forms.container;
+       for(i=0; i<a.length; i++){
+         if(a[i].checked ==true)
+         return true;
+       }
+       document.getElementById("mensaje").innerHTML = "*Campo Obligatorio*"
+       return false;
+
+
+     }
+
+     $(document).ready(function () {
+    var outputSpan = $('#spanOutput');
+    var sliderDiv = $('#slider');
+
+    sliderDiv.slider({
+        range: true,
+        min: 0,
+        max: 10000,
+        values: [20, 30],
+        slide: function (event, ui) {
+            outputSpan.html(ui.values[0] + ' - ' + ui.values[1] + ' Precio');
+        },
+        stop: function (event, ui) {
+            $('#txtMin').val(ui.values[0]);
+            $('#txtMax').val(ui.values[1]);
+        }
+    });
+
+    outputSpan.html(sliderDiv.slider('values', 0) + ' - '
+        + sliderDiv.slider('values', 1) + ' Precio');
+    $('#txtMin').val(sliderDiv.slider('values', 0));
+    $('#txtMax').val(sliderDiv.slider('values', 1));
+});
+
+   </script>  
+
+   
+
+
+</head>
+
+<body>
+  
+    <p><h2>  Registro de Intereses</h2></p>
+    
+   
+    
+    <form name="forms" onsubmit="return confir()">
+
+      <h4>Seleccione su Color Favorito</h4>
+
+    <input type="radio" name="container" value="blanco"> Blanco </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Negro </input> <br> 
+    <br>
+    <input type="radio" name="container" value="blanco"> Plateado </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Rojo </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Azul </input> <br>
+    <br>
+    
+    <h4>Seleccione su Marca Favorita</h4>
+
+    <input type="radio" name="container" value="blanco"> Toyota </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Honda </input> <br> 
+    <br>
+    <input type="radio" name="container" value="blanco"> Chevrolet </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Ford </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Mercedes-Benz </input> <br>
+    <br>
+   
+
+    <h4>Seleccione su Estilo Favorito</h4>
+
+    <input type="radio" name="container" value="blanco"> Sedan </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Deportivo </input> <br> 
+    <br>
+    <input type="radio" name="container" value="blanco"> Camioneta </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Convertible </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Todoterreno </input> <br>
+    <br>
+
+
+    <h4>Seleccione su Modelo Favorito</h4>
+
+    <input type="radio" name="container" value="blanco"> Ford Mustang </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Honda Civic </input> <br> 
+    <br>
+    <input type="radio" name="container" value="blanco"> Chevrolet Corvette </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Honda Accord </input> <br>
+    <br>
+    <input type="radio" name="container" value="blanco"> Toyota Camry </input> <br>
+    <br>
+
+    <div> <p id="mensaje"> </p> </div>
+    <input type="submit" value="Registrar Gustos"> </a> </input>
+    </br></br>
+    
+  </form>
+
+  <form id="form1" runat="server">
+    Age : <span id="spanOutput"></span>
+  </br></br>
+  <div id="slider"></div>
+  </br>
+  <label for="txtMin">Precio Mínimo</label>
+  <input type="text" id="txtMin" />
+
+  </br></br>
+
+  <label for="txtMax">Precio Máximo</label>
+  <input type="text" id="txtMax" />
+
+
+  </form>
+
+  
+</body>
+
+</html>
